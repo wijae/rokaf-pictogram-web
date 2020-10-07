@@ -1,0 +1,1 @@
+scripts/generateIndex.py: produce public/res/index.json by run on project root
