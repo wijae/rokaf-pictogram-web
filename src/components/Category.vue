@@ -4,7 +4,7 @@
     <div class="icons">
       <div class="icon" v-for="icon in icons" :key="icon.id" >
         <img :alt="icon.id" :src="icon.path">
-        <p> {{ icon.id }}. {{ icon.name }} </p>
+        <p> {{ icon.name }} </p>
       </div>
     </div>
   </div>
@@ -49,6 +49,8 @@ export default {
 img {
   width: 96px;
   height: 96px;
+  filter: invert(1);  
+  border-radius: 8px;
 }
 p {
   word-break: keep-all

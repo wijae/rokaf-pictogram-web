@@ -35,7 +35,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-content: space-around;
+  align-content: space-around;  
 }
 .icon{
   width: 160px;
@@ -43,6 +43,8 @@ export default {
 img {
   width: 96px;
   height: 96px;
+  filter: invert(1);  
+  border-radius: 8px;
 }
 p {
   word-break: keep-all

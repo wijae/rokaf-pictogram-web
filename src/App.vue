@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <MainList />
-    <Category id="01" />
     <Category v-for="id in categoryIds" :id="id" :key="id"/>
   </div>
 </template>
@@ -39,5 +38,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: #D2D3D3;
 }
 </style>
