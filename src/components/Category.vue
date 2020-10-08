@@ -1,32 +1,33 @@
 <template>
   <div class="category">
-    <h1>{{ categoryId }}. {{ categoryName }}</h1>
     <div class="icons">
-      <div class="icon" v-for="icon in icons" :key="icon.id" >
-        <img :alt="icon.id" :src="icon.path">
-        <p> {{ icon.name }} </p>
-      </div>
+      <TextIcon :text="categoryName" />
+      <Icon v-for="icon in icons" :key="icon.id" :icon="icon" />
     </div>
   </div>
 </template>
 
 <script>
+import Icon from './Icon.vue'
+import TextIcon from './TextIcon.vue'
+
 import iconIndex from "../iconIndex.json";
 
 export default {
   name: 'Category',
+  components: {
+    Icon,
+    TextIcon
+  },
   props: {
     id: String
   },
   data: function () {
     const category = iconIndex
       .filter(category => category.id === this.id)[0];
-
-    const icons = category.icons
-      .map(icon => ({id: icon.id, name: icon.name, path: require("../assets/res/jpg/"+ icon.path + ".jpg")}))
     
     return {
-      icons: icons,
+      icons: category.icons,
       categoryId: category.id,
       categoryName: category.name
     }
@@ -42,17 +43,7 @@ export default {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: space-around;
-}
-.icon{
-  width: 160px;
-}
-img {
-  width: 96px;
-  height: 96px;
-  filter: invert(1);  
-  border-radius: 8px;
-}
-p {
-  word-break: keep-all
+  width: 720px;
+  padding: 40px;
 }
 </style>

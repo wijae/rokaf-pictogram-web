@@ -1,26 +1,28 @@
 <template>
   <div class="category">
-    <h1>ROKAF pictogram</h1>
+    <img alt="ROKAF pictogram" src="../assets/header.jpg" />
     <div class="icons">
-      <div class="icon" v-for="category in categories" :key="category.id" >
-        <img :alt="category.id" :src="category.path">
-        <p> {{ category.id }}. {{ category.name }} </p>
-      </div>
+      <Icon v-for="icon in categories" :key="icon.id" :icon="icon" />
     </div>
   </div>
 </template>
 
 <script>
+import Icon from './Icon.vue'
+
 import iconIndex from "../iconIndex.json";
 
 export default {
   name: 'MainList',
+  components: {
+    Icon
+  },
   props: {
   },
   data: function () {
     const categories = iconIndex
-      .map(category => ({id: category.id, name: category.name, path: require("../assets/res/jpg/"+ category.iconPath + ".jpg")}));
-
+      .map(category => ({id: category.id, name: category.name, path:  category.iconPath }));
+    
     return {
       categories
     }
@@ -35,18 +37,13 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-content: space-around;  
+  align-content: space-around; 
+  width: 720px;
+  margin: 0 40px;
 }
-.icon{
-  width: 160px;
-}
-img {
-  width: 96px;
-  height: 96px;
-  filter: invert(1);  
-  border-radius: 8px;
-}
-p {
-  word-break: keep-all
+
+img{
+  width: 800px;
+  margin-bottom: 40px;
 }
 </style>
