@@ -1,8 +1,8 @@
 import os
 import json
 
-JpgResPath = "public/res/jpg"
-ResIndexPath = "public/res/index.json"
+JpgResPath = "src/assets/res/jpg"
+ResIndexPath = "src/iconIndex.json"
 
 data = []
 
@@ -12,15 +12,16 @@ for category in categories:
 
     files = os.listdir(JpgResPath+"/"+category)
     for f in files:
-        fNo = int(f[0:2])
+        fNo = f[0:2]
         fName = f[4:-4]
+        fpath = category + "/" + f[0:-4]
     
-        categoryFiles.append({"no": fNo, "name": fName})
+        categoryFiles.append({"id": fNo, "name": fName, "path": fpath})
 
-    catNo = int(category[0:2])
+    catNo = category[0:2]
     catName = category[4:]
 
-    data.append({"no": catNo, "name": catName, "files": categoryFiles})
+    data.append({"id": catNo, "name": catName, "path": category, "iconPath": categoryFiles[0]["path"], "icons": categoryFiles})
 
 
 with open(ResIndexPath, 'w', encoding='UTF-8-sig') as outfile:
