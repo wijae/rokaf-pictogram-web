@@ -43,7 +43,6 @@ export default {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: space-around;
-  width: 720px;
-  padding: 40px;
+  padding: 40px 0;
 }
 </style>

@@ -28,7 +28,7 @@ export default {
 .icon{
   width: 100px;
   height: 120px;
-  padding: 10px;
+  padding: 20px 10px;
 }
 img {
   width: 100px;
@@ -38,7 +38,8 @@ img {
 }
 p {
   margin-top: 2px;
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: bold;
   word-break: keep-all;
 }
 </style>

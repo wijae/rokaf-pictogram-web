@@ -21,7 +21,7 @@ export default {
   color: black;
   width: 100px;
   height: 120px;
-  padding: 10px;
+  padding: 20px 10px;
 }
 .text {
   width: 100px;
@@ -34,6 +34,7 @@ export default {
 }
 p {
   font-size: 14px;
+  font-weight: bold;
   color: white;
   word-break: keep-all;
   flex: 0 0 80px;

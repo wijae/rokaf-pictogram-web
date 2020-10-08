@@ -1,6 +1,5 @@
 <template>
   <div class="category">
-    <img alt="ROKAF pictogram" src="../assets/header.jpg" />
     <div class="icons">
       <Icon v-for="icon in categories" :key="icon.id" :icon="icon" />
     </div>
@@ -38,12 +37,6 @@ export default {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: space-around; 
-  width: 720px;
-  margin: 0 40px;
-}
-
-img{
-  width: 800px;
-  margin-bottom: 40px;
+  padding: 40px 0;
 }
 </style>

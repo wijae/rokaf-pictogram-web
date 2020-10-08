@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <MainList />
-    <Category v-for="id in categoryIds" :id="id" :key="id"/>
+    <div id="content">
+      <img id="header" alt="ROKAF pictogram" src="./assets/header.jpg" />
+      <MainList />
+      <Category v-for="id in categoryIds" :id="id" :key="id"/>
+    </div>
   </div>
 </template>
 
@@ -29,14 +32,42 @@ export default {
 </script>
 
 <style>
-#app {
-  width: 800px;
-  margin:0 auto;
+#content {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  width: 960px;
+  padding: 0 40px;
+  margin:0 auto;
   background-color: #D2D3D3;
 }
+
+#header{
+  width: 1040px;
+
+  margin: 0 -40px 40px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1200px) {
+  #content {
+    width: 720px;
+  }
+  #header{
+    width: 800px;
+  }
+};
+
+@media screen and (max-width: 960px) {
+  #content {
+    width: 480px;
+  }
+  #header{
+    width: 560px;
+  }
+};
+
 </style>
