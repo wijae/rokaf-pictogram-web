@@ -1,35 +1,34 @@
 <template>
-  <div class="category">
-    <div class="icons">
-      <TextIcon :text="categoryName" />
-      <Icon v-for="icon in icons" :key="icon.id" :icon="icon" />
-    </div>
-  </div>
+  <IconList :text="name" :icons="filterdIcons"/>
 </template>
 
 <script>
-import Icon from './Icon.vue'
-import TextIcon from './TextIcon.vue'
+import IconList from './IconList.vue'
 
 import iconIndex from "../iconIndex.json";
 
 export default {
   name: 'Category',
   components: {
-    Icon,
-    TextIcon
+    IconList
   },
   props: {
-    id: String
+    id: String,
+    query: String
   },
   data: function () {
     const category = iconIndex
       .filter(category => category.id === this.id)[0];
     
     return {
-      icons: category.icons,
-      categoryId: category.id,
-      categoryName: category.name
+      name: category.name,
+      icons: category.icons
+    }
+  },
+  computed: {
+    filterdIcons: function () {
+      return this.icons
+        .filter(icon => !this.query || this.name.includes(this.query) || icon.name.includes(this.query));
     }
   }
 }
@@ -37,12 +36,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.icons{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-around;
-  padding: 40px 0;
-}
 </style>

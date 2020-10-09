@@ -1,29 +1,34 @@
 <template>
-  <div class="category">
-    <div class="icons">
-      <Icon v-for="icon in categories" :key="icon.id" :icon="icon" />
-    </div>
-  </div>
+  <IconList :icons="filterdIcons"/>
 </template>
 
 <script>
-import Icon from './Icon.vue'
+import IconList from './IconList.vue'
 
 import iconIndex from "../iconIndex.json";
 
 export default {
   name: 'MainList',
   components: {
-    Icon
+    IconList
   },
-  props: {
+  props:{
+    query: String
   },
   data: function () {
-    const categories = iconIndex
-      .map(category => ({id: category.id, name: category.name, path:  category.iconPath }));
-    
+    const icons = iconIndex
+      .map(category => ({
+        id: category.id, name: category.name, path: category.iconPath 
+      }))
+
     return {
-      categories
+      icons
+    }
+  },
+  computed: {
+    filterdIcons: function () {
+      return this.icons
+        .filter(icon => !this.query || icon.name.includes(this.query));
     }
   }
 }
@@ -31,12 +36,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.icons{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-around; 
-  padding: 40px 0;
-}
 </style>
