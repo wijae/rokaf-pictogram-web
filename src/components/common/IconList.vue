@@ -32,6 +32,6 @@ export default {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: space-around;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 </style>

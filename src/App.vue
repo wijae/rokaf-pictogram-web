@@ -87,4 +87,15 @@ export default {
   }
 };
 
+@media screen and (max-width: 600px) {
+  #content {
+    width: 240px;
+    padding: 0 20px 20px;
+  }
+  #header{
+    width: 280px;
+    margin: 0 -20px 20px;
+  }
+};
+
 </style>
