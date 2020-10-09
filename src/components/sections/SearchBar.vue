@@ -27,8 +27,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .input {
-  width: 100%;
+  width: calc(100% - 42px);
   padding: 8px 10px;
-  border: 1px solid blue;
+  margin: 0 10px;
+  border: 1px solid black;
 }
 </style>

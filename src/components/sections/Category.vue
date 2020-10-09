@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import IconList from './IconList.vue'
+import IconList from '../common/IconList.vue'
 
-import iconIndex from "../iconIndex.json";
+import iconIndex from "../../iconIndex.json";
 
 export default {
   name: 'Category',

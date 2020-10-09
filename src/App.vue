@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Category from './components/Category.vue'
-import MainList from './components/MainList.vue'
-import SearchBar from './components/SearchBar.vue'
+import Category from './components/sections/Category.vue'
+import MainList from './components/sections/MainList.vue'
+import SearchBar from './components/sections/SearchBar.vue'
 
 import iconIndex from "./iconIndex.json";
 

@@ -17,7 +17,7 @@ export default {
   },
   data: function () {
     return {
-      path: require("../assets/res/jpg/"+ this.icon.path + ".jpg")
+      path: require("../../assets/res/jpg/"+ this.icon.path + ".jpg")
     }
   }
 }
