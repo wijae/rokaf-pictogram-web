@@ -18,7 +18,7 @@ export default {
   data: function () {
     const icons = iconIndex
       .map(category => ({
-        id: category.id, name: category.name, path: category.iconPath 
+        id: category.id, name: category.name, path: category.iconPath, to: `/category/${category.id}`
       }))
 
     return {

@@ -1,7 +1,7 @@
 <template>
   <div class="icon">    
-    <template v-if="to">
-      <router-link :to="to">
+    <template v-if="icon.to">
+      <router-link :to="icon.to">
         <img :alt="icon.name" :src="path">
       </router-link>
     </template>
@@ -25,8 +25,7 @@ export default {
   },
   data: function () {
     return {
-      path: require("../../assets/res/jpg/"+ this.icon.path + ".jpg"),
-      to: "/about"
+      path: require("@/assets/res/jpg/"+ this.icon.path + ".jpg")
     }
   }
 }
