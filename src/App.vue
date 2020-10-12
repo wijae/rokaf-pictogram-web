@@ -10,15 +10,17 @@
         <MainList :query="query"/>
         <Category v-for="id in categoryIds" :id="id" :key="id" :query="query"/>
       </div>
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
-import Category from './components/sections/Category.vue'
-import MainList from './components/sections/MainList.vue'
-import SearchBar from './components/sections/SearchBar.vue'
+import Category from './components/sections/Category'
+import MainList from './components/sections/MainList'
+import SearchBar from './components/sections/SearchBar'
 import Header from './components/sections/Header'
+import Footer from './components/sections/Footer'
 
 import iconIndex from "./iconIndex.json";
 
@@ -28,7 +30,8 @@ export default {
     Category,
     MainList,
     SearchBar,
-    Header
+    Header,
+    Footer
   },
   data: function () {
     const categoryIds = iconIndex
