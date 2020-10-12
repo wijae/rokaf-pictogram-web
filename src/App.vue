@@ -51,13 +51,13 @@ export default {
   #wrapper {
     width: calc(720px + 80px);
   }
-};
+}
 
 @media screen and (max-width: 960px) {
   #wrapper {
     width: calc(480px + 80px);
   }
-};
+}
 
 @media screen and (max-width: 600px) {
   #wrapper {
@@ -66,6 +66,6 @@ export default {
   #content {
     padding: 0 20px 20px;
   }
-};
+}
 
 </style>
