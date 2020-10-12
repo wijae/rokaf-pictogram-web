@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <SearchBar 
       v-model="query"
       @keydown.enter="search"
@@ -17,7 +17,7 @@ import SearchBar from '@/components/sections/SearchBar'
 import iconIndex from "@/iconIndex.json";
 
 export default {
-  name: 'Home',
+  name: 'MainPage',
   components: {
     Category,
     MainList,
