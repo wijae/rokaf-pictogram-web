@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <div id="content">
-      <img id="header" alt="ROKAF pictogram" src="./assets/header.jpg" />
-      <SearchBar 
-        v-model="query"
-        @keydown.enter="search"
-      />
-      <MainList :query="query"/>
-      <Category v-for="id in categoryIds" :id="id" :key="id" :query="query"/>
+    <div id="wrapper">
+      <Header />
+      <div id="content">
+        <SearchBar 
+          v-model="query"
+          @keydown.enter="search"
+        />
+        <MainList :query="query"/>
+        <Category v-for="id in categoryIds" :id="id" :key="id" :query="query"/>
+      </div>
     </div>
   </div>
 </template>
@@ -16,6 +18,7 @@
 import Category from './components/sections/Category.vue'
 import MainList from './components/sections/MainList.vue'
 import SearchBar from './components/sections/SearchBar.vue'
+import Header from './components/sections/Header'
 
 import iconIndex from "./iconIndex.json";
 
@@ -24,7 +27,8 @@ export default {
   components: {
     Category,
     MainList,
-    SearchBar
+    SearchBar,
+    Header
   },
   data: function () {
     const categoryIds = iconIndex
@@ -49,52 +53,38 @@ export default {
   background-color: #e0e0e0;
 }
 
+#wrapper {
+  width: calc(960px + 80px);
+  margin:0 auto;
+  background-color: #D2D3D3;
+}
+
 #content {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-
-  width: 960px;
   padding: 0 40px 40px;
-  margin:0 auto;
-  background-color: #D2D3D3;
-}
-
-#header{
-  width: 1040px;
-
-  margin: 0 -40px 40px;
-  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 1200px) {
-  #content {
-    width: 720px;
-  }
-  #header{
-    width: 800px;
+  #wrapper {
+    width: calc(720px + 80px);
   }
 };
 
 @media screen and (max-width: 960px) {
-  #content {
-    width: 480px;
-  }
-  #header{
-    width: 560px;
+  #wrapper {
+    width: calc(480px + 80px);
   }
 };
 
 @media screen and (max-width: 600px) {
-  #content {
-    width: 240px;
-    padding: 0 20px 20px;
+  #wrapper {
+    width: calc(240px + 40px);
   }
-  #header{
-    width: 280px;
-    margin: 0 -20px 20px;
+  #content {
+    padding: 0 20px 20px;
   }
 };
 
