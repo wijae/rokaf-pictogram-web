@@ -1,5 +1,5 @@
 <template>
-  <img id="header" alt="ROKAF pictogram" src="../../assets/header.jpg" />
+  <img id="header" alt="ROKAF pictogram" src="@/assets/header.jpg" />
 </template>
 
 <script>

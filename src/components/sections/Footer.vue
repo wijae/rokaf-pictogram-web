@@ -1,7 +1,7 @@
 <template>
   <div id="footer">
     <a id="github" rel="noopener noreferrer nofollow" href="https://github.com/wijae/rokaf-pictogram-web">
-      <img alt="github link" src="../../assets/github.png" />
+      <img alt="github link" src="@/assets/github.png" />
       ROKAF-pictogram-web
     </a>
     <p>

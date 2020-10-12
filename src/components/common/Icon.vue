@@ -1,6 +1,13 @@
 <template>
-  <div class="icon">
-    <img :alt="icon.name" :src="path">
+  <div class="icon">    
+    <template v-if="to">
+      <router-link :to="to">
+        <img :alt="icon.name" :src="path">
+      </router-link>
+    </template>
+    <template v-else>
+      <img :alt="icon.name" :src="path">
+    </template>
     <p> {{ icon.name }} </p>
   </div>
 </template>
@@ -11,13 +18,15 @@ export default {
   props: {
       icon: {
           id: String,
+          to: String,
           name: String,
           path: String
       }
   },
   data: function () {
     return {
-      path: require("../../assets/res/jpg/"+ this.icon.path + ".jpg")
+      path: require("../../assets/res/jpg/"+ this.icon.path + ".jpg"),
+      to: "/about"
     }
   }
 }

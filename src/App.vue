@@ -1,14 +1,11 @@
 <template>
   <div id="app">
     <div id="wrapper">
-      <Header />
+      <router-link to="/">
+        <Header />
+      </router-link>
       <div id="content">
-        <SearchBar 
-          v-model="query"
-          @keydown.enter="search"
-        />
-        <MainList :query="query"/>
-        <Category v-for="id in categoryIds" :id="id" :key="id" :query="query"/>
+        <router-view/>
       </div>
       <Footer />
     </div>
@@ -16,45 +13,24 @@
 </template>
 
 <script>
-import Category from './components/sections/Category'
-import MainList from './components/sections/MainList'
-import SearchBar from './components/sections/SearchBar'
-import Header from './components/sections/Header'
-import Footer from './components/sections/Footer'
-
-import iconIndex from "./iconIndex.json";
+import Header from '@/components/sections/Header'
+import Footer from '@/components/sections/Footer'
 
 export default {
   name: 'App',
   components: {
-    Category,
-    MainList,
-    SearchBar,
     Header,
     Footer
-  },
-  data: function () {
-    const categoryIds = iconIndex
-      .map(category => category.id);
-
-    return {
-      query: '',
-      categoryIds
-    }
-  },
-	methods: {
-		search () {
-      this.query = this.query.trim();
-      console.log("!");
-		}
-	}
+  }
 }
 </script>
+
 
 <style>
 #app {
   background-color: #e0e0e0;
 }
+
 
 #wrapper {
   width: calc(960px + 80px);
@@ -67,6 +43,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: #2c3e50;
   padding: 0 40px 40px;
 }
 
