@@ -1,8 +1,17 @@
 <template>
   <div class="textIcon">
-    <div class="text">
-      <p> {{ text }} </p>
-    </div>
+    <template v-if="to">
+      <router-link :to="to">
+        <div class="text">
+          <p> {{ text }} </p>
+        </div>
+      </router-link>
+    </template>    
+    <template v-else>
+      <div class="text">
+        <p> {{ text }} </p>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -10,7 +19,8 @@
 export default {
   name: 'TextIcon',
   props: {
-      text: String
+      text: String,
+      to: String
   }
 }
 </script>

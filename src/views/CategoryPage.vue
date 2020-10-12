@@ -1,6 +1,6 @@
 <template>
   <div class="cat">
-    <Category :id="id" :key="id" :query="query"/>
+    <Category :id="id" :key="id"/>
   </div>
 </template>
 

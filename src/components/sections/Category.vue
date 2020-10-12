@@ -1,5 +1,5 @@
 <template>
-  <IconList :text="name" :icons="filterdIcons"/>
+  <IconList :text="name" :to="to" :icons="filterdIcons"/>
 </template>
 
 <script>
@@ -22,7 +22,8 @@ export default {
     
     return {
       name: category.name,
-      icons: category.icons
+      to: `/category/${category.id}`,
+      icons: category.icons.map(icon => ({...icon, to: `/category/${category.id}/pictogram/${icon.id}`}))
     }
   },
   computed: {

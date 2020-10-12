@@ -1,7 +1,7 @@
 <template>
   <div class="icons" v-if="icons.length">
     <template v-if="text">
-      <TextIcon :text="text" />
+      <TextIcon :text="text" :to="to" />
     </template>
     <Icon v-for="icon in icons" :key="icon.id" :icon="icon" />
   </div>
@@ -19,6 +19,7 @@ export default {
   },
   props: {
     text: String,
+    to: String,
     icons: [Object],
   }
 }
