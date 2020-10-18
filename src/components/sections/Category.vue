@@ -1,5 +1,5 @@
 <template>
-  <IconList :text="name" :to="to" :icons="filterdIcons"/>
+  <IconList :text="name" :to="to" :icons="filterdIcons" :showTextAlways="showCategoryAlways"/>
 </template>
 
 <script>
@@ -14,11 +14,14 @@ export default {
   },
   props: {
     id: String,
-    query: String
+    query: String,
+    showCategoryAlways: Boolean
   },
   data: function () {
     const category = iconIndex
       .filter(category => category.id === this.id)[0];
+
+    console.log(this.showCategoryAlways)
     
     return {
       name: category.name,

@@ -23,7 +23,6 @@ export default {
     SearchBar
   },
   data: function () {
-
     const categoryIds = iconIndex
       .map(category => category.id);
 

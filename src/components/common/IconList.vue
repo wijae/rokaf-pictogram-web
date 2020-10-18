@@ -1,9 +1,11 @@
 <template>
-  <div class="icons" v-if="icons.length">
-    <template v-if="text">
-      <TextIcon :text="text" :to="to" />
+  <div class="iconList" v-if="icons.length || showTextAlways">
+    <template v-if="text" >
+      <TextIcon v-if="text" :text="text" :to="to" />
     </template>
-    <Icon v-for="icon in icons" :key="icon.id" :icon="icon" />
+    <template v-if="icons.length" >
+      <Icon v-for="icon in icons" :key="icon.id" :icon="icon" />
+    </template>
   </div>
 </template>
 
@@ -21,13 +23,14 @@ export default {
     text: String,
     to: String,
     icons: [Object],
+    showTextAlways: Boolean
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.icons{
+.iconList {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
