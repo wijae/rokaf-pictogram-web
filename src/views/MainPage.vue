@@ -5,7 +5,9 @@
       @keydown.enter="search"
     />
     <MainList :query="query"/>
-    <Category v-for="id in categoryIds" :id="id" :key="id" :query="query"/>
+    <template v-if="query">
+      <Category v-for="id in categoryIds" :id="id" :key="id" :query="query"/>
+    </template>
   </div>
 </template>
 
