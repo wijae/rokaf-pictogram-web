@@ -2,23 +2,32 @@
   <div id="search">
     <input
         type="text"
-        class="input"
-        v-on="listeners"
+        v-model="query"
+        @keydown.enter="search"
         placeholder="픽토그램 검색하기"
     >
-  </div>
+    <img v-if="query" class="btn" @click="reset" :src="xMarkPath" />
+  </div >
 </template>
 
 <script>
 export default {
-  computed: {
-    listeners () {
-      return {
-        // Pass all component listeners directly to input
-        ...this.$listeners,
-        // Override input listener to work with v-model
-        input: event => this.$emit('input', event.target.value)
-      }
+  props: {
+    onChange: () => {}
+  },
+  data: function () { 
+    return {
+      query: "",
+      xMarkPath: require("@/assets/x-mark.png")
+    }
+  },
+  methods: {
+    reset(){
+      this.query = "";
+      this.search()
+    },
+    search(){
+      this.onChange(this.query)
     }
   }
 }
@@ -26,10 +35,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.input {
-  width: calc(100% - 42px);
-  padding: 8px 10px;
+div {
+  position: relative;
   margin: 0 10px;
+}
+
+div input{
+  width: calc(100% - 22px);
+  padding: 8px 10px;
+  margin: 0;
   border: 1px solid black;
+}
+
+div img {
+  position: absolute;
+  display: block;
+  top: 0px;
+  right: 0px;
+  width: 15px;
+  height: 15px;
+  border: 0px;
+  margin: 9px;
+  cursor: pointer;
 }
 </style>

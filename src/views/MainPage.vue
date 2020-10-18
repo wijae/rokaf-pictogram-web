@@ -1,9 +1,6 @@
 <template>
   <div>
-    <SearchBar 
-      v-model="query"
-      @keydown.enter="search"
-    />
+    <SearchBar :onChange="onChangeQuery"/>
     <MainList :query="query"/>
     <template v-if="query">
       <Category v-for="id in categoryIds" :id="id" :key="id" :query="query"/>
@@ -26,6 +23,7 @@ export default {
     SearchBar
   },
   data: function () {
+
     const categoryIds = iconIndex
       .map(category => category.id);
 
@@ -35,8 +33,8 @@ export default {
     }
   },
 	methods: {
-		search () {
-      this.query = this.query.trim();
+		onChangeQuery (query) {
+      this.query = query;
 		}
 	}
 }
