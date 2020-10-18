@@ -33,6 +33,7 @@ export default {
   height: 120px;
   padding: 20px 10px;
 }
+
 .text {
   width: 100px;
   height: 100px;
@@ -42,11 +43,16 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 p {
   font-size: 14px;
   font-weight: bold;
   color: white;
   word-break: keep-all;
   flex: 0 0 80px;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
